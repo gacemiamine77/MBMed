@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# Données locales, base et configuration d'exécution
+config/settings.toml
+MBM_Data/
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
+data/
+
+# Journaux et exports générés
+*.log

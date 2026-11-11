@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mediterranean-bathymetry-monitor"
+version = "0.1.0"
+description = "Veille scientifique des données bathymétriques ouvertes de Méditerranée (catalogue SDB)"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "Propriétaire — usage scientifique" }
+authors = [{ name = "MBM" }]
+keywords = ["bathymetry", "SDB", "Mediterranean", "GIS", "oceanography", "geospatial"]
+
+dependencies = [
+    "PySide6-Essentials>=6.6",
+    "matplotlib>=3.8",
+    "numpy>=1.26",
+    "shapely>=2.0",
+    "pyproj>=3.6",
+    "requests>=2.31",
+    "APScheduler>=3.10",
+    "openpyxl>=3.1",
+]
+
+[project.optional-dependencies]
+geo = ["geopandas>=0.14", "rasterio>=1.3", "xarray>=2023.1"]
+pdf = ["reportlab>=4.0"]
+postgres = ["psycopg[binary]>=3.1"]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+mbm = "app.main:main"
+
+[tool.setuptools]
+packages = ["app", "app.config", "app.core", "app.database", "app.geospatial",
+            "app.gui", "app.gui.pages", "app.reports"]
+
+[tool.setuptools.package-data]
+"app.database" = ["*.sql"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--strict-markers"
+filterwarnings = [
+    "ignore::DeprecationWarning:matplotlib.*",
+]

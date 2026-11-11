@@ -1,0 +1,31 @@
+# Dépendances de Mediterranean Bathymetry Monitor (Phase 1)
+# Python 3.12+ (testé sur 3.13)
+
+# --- Interface graphique -----------------------------------------------------
+PySide6-Essentials>=6.6
+
+# --- Graphiques --------------------------------------------------------------
+matplotlib>=3.8
+numpy>=1.26
+
+# --- Géospatial --------------------------------------------------------------
+shapely>=2.0
+pyproj>=3.6
+geopandas>=0.14          # optionnel : analyse vectorielle avancée (Phase 5)
+rasterio>=1.3            # roue binaire embarquant GDAL
+xarray>=2023.1           # lecture NetCDF des MNT (Phase 5+)
+
+# --- Réseau et planification (Phases 2-4 et 7) -------------------------------
+requests>=2.31
+APScheduler>=3.10
+
+# --- Exports -----------------------------------------------------------------
+openpyxl>=3.1            # Excel
+reportlab>=4.0           # PDF (Phase 7)
+
+# --- Base de données ---------------------------------------------------------
+# SQLite est fourni par Python. Pour PostgreSQL/PostGIS :
+# psycopg[binary]>=3.1
+
+# --- Développement / tests ---------------------------------------------------
+pytest>=8.0
